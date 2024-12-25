@@ -19,7 +19,7 @@ const Section3: React.FC = () => {
         "Our programs provide young leaders with opportunities to grow and impact their communities.",
       ],
       image: "/IMG_20241018_202735_975 - Alexa Mikealson.jpg",
-      icon: <FaUsers className="text-[#34A853] text-4xl sm:text-5xl" />,
+      icon: <FaUsers className="text-[#34A853] text-5xl" />,
     },
     chapters: {
       title: "Our Chapters",
@@ -29,7 +29,7 @@ const Section3: React.FC = () => {
         "Chapters create opportunities to lead and make a difference.",
       ],
       image: "/FOR THE.jpg",
-      icon: <FaHandsHelping className="text-[#34A853] text-4xl sm:text-5xl" />,
+      icon: <FaHandsHelping className="text-[#34A853] text-5xl" />,
     },
     mission: {
       title: "Our Mission",
@@ -39,7 +39,7 @@ const Section3: React.FC = () => {
         "Build sustainable businesses addressing societal challenges.",
       ],
       image: "/1.png",
-      icon: <FaLightbulb className="text-[#34A853] text-4xl sm:text-5xl" />,
+      icon: <FaLightbulb className="text-[#34A853] text-5xl" />,
     },
     impact: {
       title: "Our Impact",
@@ -49,7 +49,7 @@ const Section3: React.FC = () => {
         "Showcased success stories of impactful community efforts.",
       ],
       image: "/AD_4nXfjCj5oF6pA9USe0nEqvN5mMycDkfFK9bB_I5wD9smZIRVwF-IXUggKs6f0glQ9EK_AsKPO1DJ6elGKcaID_yFDZDtn9i-6YFtAcvmRMnVx9mAvJeEcSvfU.jpg",
-      icon: <FaChartLine className="text-[#34A853] text-4xl sm:text-5xl" />,
+      icon: <FaChartLine className="text-[#34A853] text-5xl" />,
     },
   };
 
@@ -79,11 +79,11 @@ const Section3: React.FC = () => {
           {Object.keys(tabs).map((tab) => (
             <motion.button
               key={tab}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className={`px-4 py-2 sm:px-6 sm:py-3 text-md sm:text-lg font-semibold rounded-full border-2 transition-all duration-300 ${
+              className={`relative px-4 py-2 sm:px-6 sm:py-3 text-md sm:text-lg font-semibold rounded-full border-2 transition-all duration-300 ${
                 activeTab === tab
-                  ? "bg-[#34A853] text-white border-[#34A853]"
+                  ? "bg-[#34A853] text-white border-[#34A853] shadow-xl"
                   : "bg-white text-[#34A853] border-[#34A853] hover:bg-[#34A853] hover:text-white"
               }`}
               onClick={() => setActiveTab(tab as TabKey)}
@@ -117,13 +117,13 @@ const Section3: React.FC = () => {
                       <img
                         src={tabs[tab as TabKey].image}
                         alt={tabs[tab as TabKey].title}
-                        className="rounded-lg w-full shadow-lg object-cover"
+                        className="rounded-lg w-full shadow-lg object-cover transform hover:scale-105 transition-transform duration-300"
                       />
                     </motion.div>
 
                     {/* Text Section */}
                     <motion.div
-                      className="lg:w-1/2 w-full text-center lg:text-left order-1 lg:order-2 space-y-4"
+                      className="lg:w-1/2 w-full text-center lg:text-left order-1 lg:order-2 space-y-6"
                       initial={{ opacity: 0, x: 50 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5 }}
@@ -136,7 +136,28 @@ const Section3: React.FC = () => {
                       </div>
                       <ul className="list-disc list-inside text-lg sm:text-xl text-[#4A4A4A] space-y-2">
                         {tabs[tab as TabKey].text.map((point, index) => (
-                          <li key={index}>{point}</li>
+                          <li key={index} className="relative">
+                            {point.split(" ").map((word, i) => (
+                              <motion.span
+                                key={i}
+                                className={`inline-block ${
+                                  ["youth", "opportunities", "communities"].includes(
+                                    word.toLowerCase()
+                                  )
+                                    ? "relative font-bold text-[#FBB040] underline"
+                                    : ""
+                                }`}
+                                initial={{ x: -10, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                transition={{
+                                  duration: 0.3,
+                                  delay: i * 0.03,
+                                }}
+                              >
+                                {word}&nbsp;
+                              </motion.span>
+                            ))}
+                          </li>
                         ))}
                       </ul>
                     </motion.div>

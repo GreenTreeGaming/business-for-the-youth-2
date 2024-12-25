@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 const work_sans = Work_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Business For The Hope",
+  title: "Business For The Youth",
   description: "Join us in making change through business",
 };
 

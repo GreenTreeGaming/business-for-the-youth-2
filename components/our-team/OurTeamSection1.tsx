@@ -15,7 +15,7 @@ const teamMembers = [
 
 const OurTeamSection1: React.FC = () => {
   return (
-    <section className="bg-[#F7F9FC]">
+    <section className="bg-[#F7F9FC] pb-20">
       {/* Decorative Header Section */}
       <div className="bg-[#34A853] pt-32 pb-16 text-center w-full">
         <motion.h2

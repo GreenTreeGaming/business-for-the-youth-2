@@ -32,8 +32,8 @@ const AboutSection4: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <h3 className="text-3xl font-bold mb-4 flex items-center gap-3">
-              <FaMapMarkerAlt className="text-[#FBB040] text-4xl" />
               Our Global Presence
+              <FaMapMarkerAlt className="text-[#FBB040] text-4xl" />
             </h3>
             <p className="text-lg text-center mb-6">
               With chapters spanning schools and regions worldwide, we empower youth to lead

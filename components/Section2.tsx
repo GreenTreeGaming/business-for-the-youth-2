@@ -21,7 +21,18 @@ const Section2: React.FC = () => {
 
   return (
     <section className="bg-gray-50 py-16 border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Featured On Header */}
+        <motion.h3
+          className="text-3xl sm:text-4xl font-bold text-gray-800 mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          Featured On
+        </motion.h3>
+
+        {/* Logos */}
         <div className="flex justify-center items-center gap-12 lg:gap-16 mt-8 overflow-x-auto">
           {logos.map((logo, index) => (
             <motion.div

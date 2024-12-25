@@ -56,7 +56,7 @@ const Section1: React.FC = () => {
 
         {/* Image Section */}
         <motion.div
-          className="relative flex justify-center md:w-1/2"
+          className="relative flex justify-center md:w-1/2 pb-8 sm:pb-0"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}

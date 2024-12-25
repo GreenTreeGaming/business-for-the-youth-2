@@ -66,7 +66,7 @@ const AboutSection2: React.FC = () => {
           {statements.map((statement, index) => (
             <motion.div
               key={index}
-              className="bg-gray-50 rounded-lg shadow-md p-8 hover:scale-105 transition-transform duration-300 relative flex flex-col items-center"
+              className="bg-gray-50 rounded-lg shadow-md p-6 hover:scale-105 transition-transform duration-300 relative flex flex-col items-center text-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
@@ -79,10 +79,12 @@ const AboutSection2: React.FC = () => {
               </div>
 
               {/* Title and Text */}
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">
+              <h3 className="text-xl font-bold text-gray-800 mb-4 max-w-[90%]">
                 {statement.title}
               </h3>
-              <p className="text-gray-600 text-center">{statement.text}</p>
+              <p className="text-sm sm:text-base text-gray-600">
+                {statement.text}
+              </p>
             </motion.div>
           ))}
         </div>

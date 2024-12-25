@@ -28,12 +28,13 @@ const VolunteerSection1: React.FC = () => {
         <div className="absolute bottom-10 right-10 w-40 h-40 bg-white opacity-20 rounded-full blur-2xl"></div>
       </div>
 
+      {/* Content Section */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 mt-16 space-y-16">
         {/* Getting Started Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Section */}
           <motion.div
-            className="space-y-6"
+            className="space-y-6 text-center lg:text-left"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -62,7 +63,7 @@ const VolunteerSection1: React.FC = () => {
             <img
               src="/IMG_1933.JPG" // Replace with actual image path
               alt="Volunteer Registration"
-              className="w-full h-full object-cover"
+              className="w-full h-72 object-cover"
             />
           </motion.div>
         </div>
@@ -79,13 +80,13 @@ const VolunteerSection1: React.FC = () => {
             <img
               src="/IMG_5384 - Aahana Shah.jpeg" // Replace with actual image path
               alt="Volunteer Ranking"
-              className="w-full h-full object-cover"
+              className="w-full h-72 object-cover"
             />
           </motion.div>
 
           {/* Text Section */}
           <motion.div
-            className="space-y-6"
+            className="space-y-6 text-center lg:text-left"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
