@@ -5,7 +5,10 @@ import { FaCaretDown } from "react-icons/fa";
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState({ about: false, involved: false });
+  const [dropdownOpen, setDropdownOpen] = useState<{ about: boolean; involved: boolean }>({
+    about: false,
+    involved: false,
+  });
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
@@ -30,12 +33,16 @@ const Navbar = () => {
 
   const handleMouseEnter = (menu: keyof typeof dropdownOpen) => {
     if (hoverTimeout) clearTimeout(hoverTimeout);
-    setDropdownOpen({ ...dropdownOpen, [menu]: true });
+
+    setDropdownOpen({
+      about: menu === "about",
+      involved: menu === "involved",
+    });
   };
 
-  const handleMouseLeave = (menu: keyof typeof dropdownOpen) => {
+  const handleMouseLeave = () => {
     const timeout: NodeJS.Timeout = setTimeout(() => {
-      setDropdownOpen({ ...dropdownOpen, [menu]: false });
+      setDropdownOpen({ about: false, involved: false });
     }, 300); // 300ms delay before closing
     setHoverTimeout(timeout);
   };
@@ -60,7 +67,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex space-x-6 items-center">
+          <div className="hidden md:flex space-x-8 items-center">
             <a
               href="/"
               className="text-lg font-medium text-gray-800 hover:text-[#34A853] transition duration-300"
@@ -71,7 +78,7 @@ const Navbar = () => {
             <div
               className="relative group"
               onMouseEnter={() => handleMouseEnter("about")}
-              onMouseLeave={() => handleMouseLeave("about")}
+              onMouseLeave={handleMouseLeave}
             >
               <button className="flex items-center text-lg font-medium text-gray-800 hover:text-[#34A853] transition duration-300">
                 About Us
@@ -82,16 +89,16 @@ const Navbar = () => {
                 />
               </button>
               {dropdownOpen.about && (
-                <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2">
+                <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-56 bg-white shadow-lg rounded-md py-3 flex flex-col items-center space-y-2">
                   <a
                     href="/about"
-                    className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-[#34A853]"
+                    className="text-gray-800 hover:text-[#34A853] hover:bg-gray-100 block px-4 py-2 w-full text-center transition"
                   >
                     Who We Are
                   </a>
                   <a
                     href="/our-team"
-                    className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-[#34A853]"
+                    className="text-gray-800 hover:text-[#34A853] hover:bg-gray-100 block px-4 py-2 w-full text-center transition"
                   >
                     Our Team
                   </a>
@@ -102,7 +109,7 @@ const Navbar = () => {
             <div
               className="relative group"
               onMouseEnter={() => handleMouseEnter("involved")}
-              onMouseLeave={() => handleMouseLeave("involved")}
+              onMouseLeave={handleMouseLeave}
             >
               <button className="flex items-center text-lg font-medium text-gray-800 hover:text-[#34A853] transition duration-300">
                 Get Involved
@@ -113,16 +120,16 @@ const Navbar = () => {
                 />
               </button>
               {dropdownOpen.involved && (
-                <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2">
+                <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-56 bg-white shadow-lg rounded-md py-3 flex flex-col items-center space-y-2">
                   <a
                     href="/start-chapter"
-                    className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-[#34A853]"
+                    className="text-gray-800 hover:text-[#34A853] hover:bg-gray-100 block px-4 py-2 w-full text-center transition"
                   >
                     Start a Chapter
                   </a>
                   <a
                     href="/volunteering"
-                    className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-[#34A853]"
+                    className="text-gray-800 hover:text-[#34A853] hover:bg-gray-100 block px-4 py-2 w-full text-center transition"
                   >
                     Volunteering
                   </a>
@@ -190,7 +197,12 @@ const Navbar = () => {
             {/* About Us Dropdown */}
             <div>
               <button
-                onClick={() => setDropdownOpen({ ...dropdownOpen, about: !dropdownOpen.about })}
+                onClick={() =>
+                  setDropdownOpen({
+                    about: !dropdownOpen.about,
+                    involved: false,
+                  })
+                }
                 className="flex items-center w-full text-left text-lg text-gray-800 hover:text-[#34A853] transition duration-300"
               >
                 About Us
@@ -201,7 +213,7 @@ const Navbar = () => {
                 />
               </button>
               {dropdownOpen.about && (
-                <div className="ml-4 mt-2 space-y-2">
+                <div className="ml-4 mt-2 space-y-2 flex flex-col items-center">
                   <a
                     href="/about"
                     className="block text-lg text-gray-800 hover:text-[#34A853] transition duration-300"
@@ -220,7 +232,12 @@ const Navbar = () => {
             {/* Get Involved Dropdown */}
             <div>
               <button
-                onClick={() => setDropdownOpen({ ...dropdownOpen, involved: !dropdownOpen.involved })}
+                onClick={() =>
+                  setDropdownOpen({
+                    about: false,
+                    involved: !dropdownOpen.involved,
+                  })
+                }
                 className="flex items-center w-full text-left text-lg text-gray-800 hover:text-[#34A853] transition duration-300"
               >
                 Get Involved
@@ -231,7 +248,7 @@ const Navbar = () => {
                 />
               </button>
               {dropdownOpen.involved && (
-                <div className="ml-4 mt-2 space-y-2">
+                <div className="ml-4 mt-2 space-y-2 flex flex-col items-center">
                   <a
                     href="/start-chapter"
                     className="block text-lg text-gray-800 hover:text-[#34A853] transition duration-300"

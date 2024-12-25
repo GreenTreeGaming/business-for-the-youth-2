@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Section1: React.FC = () => {
   return (
@@ -32,20 +33,24 @@ const Section1: React.FC = () => {
           </p>
           {/* Buttons */}
           <div className="flex justify-center md:justify-start gap-6">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 mt-4 bg-[#FBB040] text-black font-semibold rounded-lg transition-all duration-300 hover:bg-[#FFC857] shadow-lg"
-            >
-              Get Involved
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 mt-4 bg-white text-[#34A853] font-semibold rounded-lg transition-all duration-300 hover:bg-[#E6F8E6] shadow-lg"
-            >
-              Contact Us
-            </motion.button>
+            <Link href="/start-chapter">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 py-3 mt-4 bg-[#FBB040] text-black font-semibold rounded-lg transition-all duration-300 hover:bg-[#FFC857] shadow-lg"
+              >
+                Get Involved
+              </motion.button>
+            </Link>
+            <Link href="/contact">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 py-3 mt-4 bg-white text-[#34A853] font-semibold rounded-lg transition-all duration-300 hover:bg-[#E6F8E6] shadow-lg"
+              >
+                Contact Us
+              </motion.button>
+            </Link>
           </div>
         </motion.div>
 

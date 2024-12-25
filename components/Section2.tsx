@@ -4,13 +4,13 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const Section2: React.FC = () => {
-  // Example array of logo URLs (replace with your actual logo URLs)
+  // Example array of logos with URLs
   const logos = [
-    "/press1.png",
-    "/press2.jpg",
-    "/press3.png",
-    "/press4.png",
-    "/press5.png",
+    { src: "/press1.png", link: "https://www.swconnector.com/stories/business-for-the-youth,81877" },
+    { src: "/press2.jpg", link: "https://tcbmag.com/a-minneapolis-teens-business-club-goes-global/" },
+    { src: "/press3.png", link: "https://voyageminnesota.com/?post_type=interview&p=125379" },
+    { src: "/press4.png", link: "https://www.southwestvoices.news/posts/teen-starts-non-profit-based-on-acts-of-service" },
+    { src: "/press5.png", link: "https://swhsnavigator.com/2964/features/business-club-has-heart/" },
   ];
 
   // Animation variants for logos
@@ -33,11 +33,13 @@ const Section2: React.FC = () => {
               transition={{ duration: 0.5, delay: index * 0.2 }}
               variants={logoVariants}
             >
-              <img
-                src={logo}
-                alt={`Company logo ${index + 1}`}
-                className="h-14 sm:h-16 md:h-20 lg:h-24 object-contain"
-              />
+              <a href={logo.link} target="_blank" rel="noopener noreferrer">
+                <img
+                  src={logo.src}
+                  alt={`Press logo ${index + 1}`}
+                  className="h-14 sm:h-16 md:h-20 lg:h-24 object-contain"
+                />
+              </a>
             </motion.div>
           ))}
         </div>

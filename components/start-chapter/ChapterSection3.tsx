@@ -76,36 +76,48 @@ const ChapterSection3: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
             >
-              <div className="mb-4">{benefit.icon}</div>
+              <div className="flex justify-center items-center mb-4">
+                {benefit.icon}
+              </div>
               <h3 className="text-xl font-bold text-[#34A853] mb-2">{benefit.title}</h3>
               <p className="text-gray-700">{benefit.text}</p>
             </motion.div>
           ))}
         </div>
+      </div>
 
-        {/* Leadership Roles Section */}
-        <motion.h3
-          className="text-4xl sm:text-5xl font-bold text-[#34A853] text-center mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          Leadership Roles
-        </motion.h3>
+      {/* Leadership Roles Section */}
+      <div className="bg-gray-50 py-16">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <motion.h3
+            className="text-4xl sm:text-5xl font-bold text-[#34A853] text-center mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Leadership Roles
+          </motion.h3>
+          <motion.div
+            className="w-24 h-1 bg-[#FBB040] mx-auto mb-12"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.6 }}
+          ></motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {roles.map((role, index) => (
-            <motion.div
-              key={index}
-              className="bg-gray-50 rounded-lg p-8 shadow-md hover:shadow-lg transition-shadow duration-300"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-            >
-              <h4 className="text-2xl font-bold text-[#34A853] mb-4">{role.title}</h4>
-              <p className="text-gray-700">{role.text}</p>
-            </motion.div>
-          ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {roles.map((role, index) => (
+              <motion.div
+                key={index}
+                className="bg-white rounded-lg p-8 shadow-md hover:shadow-lg transition-shadow duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+              >
+                <h4 className="text-2xl font-bold text-[#34A853] mb-4">{role.title}</h4>
+                <p className="text-gray-700">{role.text}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

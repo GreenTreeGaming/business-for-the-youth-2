@@ -27,9 +27,9 @@ const AboutSection2: React.FC = () => {
   ];
 
   return (
-    <section className="bg-white relative py-28">
+    <section className="bg-white pb-20">
       {/* Decorative Header Section */}
-      <div className="bg-[#34A853] py-12 text-center">
+      <div className="bg-[#34A853] pt-32 pb-16 text-center w-full">
         <motion.h2
           className="text-5xl sm:text-6xl font-bold text-white"
           initial={{ opacity: 0, y: -20 }}
@@ -45,9 +45,6 @@ const AboutSection2: React.FC = () => {
           transition={{ duration: 0.6 }}
         ></motion.div>
       </div>
-
-      {/* Zigzag Divider */}
-      <div className="absolute top-0 w-full h-12 bg-[#F7F9FC] transform rotate-180 clip-path-mountain"></div>
 
       {/* Content Section */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 mt-16">

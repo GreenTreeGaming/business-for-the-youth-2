@@ -15,9 +15,9 @@ const teamMembers = [
 
 const OurTeamSection1: React.FC = () => {
   return (
-    <section className="bg-[#F7F9FC] py-20">
+    <section className="bg-[#F7F9FC]">
       {/* Decorative Header Section */}
-      <div className="bg-[#34A853] py-16 text-center w-full">
+      <div className="bg-[#34A853] pt-32 pb-16 text-center w-full">
         <motion.h2
           className="text-5xl sm:text-6xl font-bold text-white"
           initial={{ opacity: 0, y: -20 }}

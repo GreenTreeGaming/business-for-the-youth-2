@@ -11,14 +11,11 @@ const AboutSection4: React.FC = () => {
   );
 
   return (
-    <section className="relative bg-[#F7F9FC] py-24">
-      {/* Decorative Top */}
-      <div className="absolute top-0 w-full h-12 bg-[#34A853] clip-path-mountain"></div>
-
+    <section className="relative bg-white py-24">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <motion.h2
-          className="text-5xl sm:text-6xl font-bold text-center text-[#4A4A4A] mb-12"
+          className="text-5xl sm:text-6xl font-bold text-center text-[#4A4A4A] mb-12 flex items-center justify-center gap-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
@@ -34,12 +31,14 @@ const AboutSection4: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h3 className="text-3xl font-bold mb-4">Our Global Presence</h3>
+            <h3 className="text-3xl font-bold mb-4 flex items-center gap-3">
+              <FaMapMarkerAlt className="text-[#FBB040] text-4xl" />
+              Our Global Presence
+            </h3>
             <p className="text-lg text-center mb-6">
               With chapters spanning schools and regions worldwide, we empower youth to lead
               with innovation and make meaningful contributions to their communities.
             </p>
-            <FaMapMarkerAlt className="text-[#FBB040] text-6xl mb-4" />
             <img
               src="/IMG_20241018_202735_975 - Alexa Mikealson.jpg" // Replace with a relevant image path
               alt="Global Presence"
@@ -79,8 +78,9 @@ const AboutSection4: React.FC = () => {
             </div>
 
             {/* Dynamic List of Locations */}
-            <div className="overflow-y-auto h-96 bg-white p-6 rounded-lg border border-gray-200">
-              <h3 className="text-2xl font-bold text-[#4A4A4A] mb-4">
+            <div className="overflow-y-auto h-96 bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-lg">
+              <h3 className="text-2xl font-bold text-[#4A4A4A] mb-4 flex items-center gap-3">
+                <FaMapMarkerAlt className="text-[#34A853]" />
                 {activeTab === "schoolChapters" ? "School Chapters" : "Regional Chapters"}
               </h3>
               <ul className="space-y-4">

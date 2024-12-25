@@ -13,7 +13,7 @@ const Section4: React.FC = () => {
 
   return (
     <motion.section
-      className="bg-[#F7F9FC] py-20"
+      className="bg-white py-20"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
@@ -34,7 +34,7 @@ const Section4: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Volunteering Section */}
           <motion.div
-            className="bg-white rounded-xl p-8 flex flex-col items-center text-center shadow-md hover:shadow-lg transition-shadow duration-300"
+            className="bg-[#F7F9FC] rounded-xl p-8 flex flex-col items-center text-center shadow-md hover:shadow-lg transition-shadow duration-300"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -64,7 +64,7 @@ const Section4: React.FC = () => {
 
           {/* Starting a Chapter Section */}
           <motion.div
-            className="bg-white rounded-xl p-8 flex flex-col items-center text-center shadow-md hover:shadow-lg transition-shadow duration-300"
+            className="bg-[#F7F9FC] rounded-xl p-8 flex flex-col items-center text-center shadow-md hover:shadow-lg transition-shadow duration-300"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}

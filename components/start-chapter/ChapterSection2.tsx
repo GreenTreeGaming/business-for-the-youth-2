@@ -64,7 +64,9 @@ const ChapterSection2: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
             >
-              <div className="mb-6">{item.icon}</div>
+              <div className="flex justify-center items-center mb-6">
+                {item.icon}
+              </div>
               <h3 className="text-2xl font-bold text-[#34A853] mb-4">
                 {item.title}
               </h3>
@@ -81,7 +83,7 @@ const ChapterSection2: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <motion.a
-            href="https://docs.google.com/document/d/16mk8neqcwXRReGUw5tT3N6TQbWcCiAdyr7VRXAbmhYI/edit?tab=t.0#heading=h.cexdtw7o269v" // Replace with the actual Chapter Starter Guide link
+            href="https://docs.google.com/document/d/16mk8neqcwXRReGUw5tT3N6TQbWcCiAdyr7VRXAbmhYI/edit?tab=t.0#heading=h.cexdtw7o269v"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 bg-[#FBB040] text-black font-semibold rounded-lg transition-all duration-300 hover:bg-[#FFC857] shadow-lg text-lg inline-flex items-center"
