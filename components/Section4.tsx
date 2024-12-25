@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaHandsHelping, FaRegLightbulb } from "react-icons/fa";
+import Link from "next/link";
 
 const Section4: React.FC = () => {
   const sectionVariants = {
@@ -50,13 +51,15 @@ const Section4: React.FC = () => {
               Join us in making a difference by volunteering your time to help
               with our events, initiatives, and outreach programs.
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-2 font-semibold rounded-lg bg-[#FBB040] text-white hover:text-[#4A4A4A] transition-all"
-            >
-              Learn More
-            </motion.button>
+            <Link href="/volunteering">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 py-2 font-semibold rounded-lg bg-[#FBB040] text-white hover:text-[#4A4A4A] transition-all"
+              >
+                Learn More
+              </motion.button>
+            </Link>
           </motion.div>
 
           {/* Starting a Chapter Section */}
@@ -78,13 +81,15 @@ const Section4: React.FC = () => {
               Start a local chapter in your area to bring our mission closer to
               your community and inspire others to get involved.
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-2 font-semibold rounded-lg bg-[#34A853] text-white hover:text-[#4A4A4A] transition-all"
-            >
-              Learn More
-            </motion.button>
+            <Link href="/start-chapter">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 py-2 font-semibold rounded-lg bg-[#34A853] text-white hover:text-[#4A4A4A] transition-all"
+              >
+                Learn More
+              </motion.button>
+            </Link>
           </motion.div>
         </div>
       </div>

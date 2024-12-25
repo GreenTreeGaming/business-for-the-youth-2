@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Section5: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<"schoolChapters" | "regionalChapters">(
@@ -34,13 +35,15 @@ const Section5: React.FC = () => {
             Business for the Youth. Together, we empower young leaders to drive
             innovation and positive change worldwide.
           </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-6 px-6 py-3 font-semibold bg-[#34A853] text-white rounded-lg hover:bg-[#FBB040] hover:text-[#4A4A4A] transition-all"
-          >
-            Learn More
-          </motion.button>
+          <Link href="/start-chapter">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-6 px-6 py-3 font-semibold bg-[#34A853] text-white rounded-lg hover:bg-[#FBB040] hover:text-[#4A4A4A] transition-all"
+            >
+              Learn More
+            </motion.button>
+          </Link>
         </div>
 
         {/* Replaced Locations Section */}

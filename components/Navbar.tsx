@@ -5,12 +5,10 @@ import { FaCaretDown } from "react-icons/fa";
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState({ about: false, involved: false });
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(
-    null
-  );
+  const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
 
   const toggleMobileNavbar = () => {
     setClick(!click);
@@ -30,14 +28,16 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  const handleMouseEnter = () => {
-    if (dropdownTimeout) clearTimeout(dropdownTimeout);
-    setDropdownOpen(true);
+  const handleMouseEnter = (menu: keyof typeof dropdownOpen) => {
+    if (hoverTimeout) clearTimeout(hoverTimeout);
+    setDropdownOpen({ ...dropdownOpen, [menu]: true });
   };
 
-  const handleMouseLeave = () => {
-    const timeout = setTimeout(() => setDropdownOpen(false), 200); // Delay of 200ms
-    setDropdownTimeout(timeout);
+  const handleMouseLeave = (menu: keyof typeof dropdownOpen) => {
+    const timeout: NodeJS.Timeout = setTimeout(() => {
+      setDropdownOpen({ ...dropdownOpen, [menu]: false });
+    }, 300); // 300ms delay before closing
+    setHoverTimeout(timeout);
   };
 
   return (
@@ -67,27 +67,53 @@ const Navbar = () => {
             >
               Home
             </a>
-            <a
-              href="/about"
-              className="text-lg font-medium text-gray-800 hover:text-[#34A853] transition duration-300"
-            >
-              About
-            </a>
+            {/* About Us Dropdown */}
             <div
               className="relative group"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
+              onMouseEnter={() => handleMouseEnter("about")}
+              onMouseLeave={() => handleMouseLeave("about")}
+            >
+              <button className="flex items-center text-lg font-medium text-gray-800 hover:text-[#34A853] transition duration-300">
+                About Us
+                <FaCaretDown
+                  className={`ml-2 transition-transform duration-300 ${
+                    dropdownOpen.about ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {dropdownOpen.about && (
+                <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2">
+                  <a
+                    href="/about"
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-[#34A853]"
+                  >
+                    Who We Are
+                  </a>
+                  <a
+                    href="/our-team"
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-[#34A853]"
+                  >
+                    Our Team
+                  </a>
+                </div>
+              )}
+            </div>
+            {/* Get Involved Dropdown */}
+            <div
+              className="relative group"
+              onMouseEnter={() => handleMouseEnter("involved")}
+              onMouseLeave={() => handleMouseLeave("involved")}
             >
               <button className="flex items-center text-lg font-medium text-gray-800 hover:text-[#34A853] transition duration-300">
                 Get Involved
                 <FaCaretDown
                   className={`ml-2 transition-transform duration-300 ${
-                    dropdownOpen ? "rotate-180" : ""
+                    dropdownOpen.involved ? "rotate-180" : ""
                   }`}
                 />
               </button>
-              {dropdownOpen && (
-                <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2 z-50">
+              {dropdownOpen.involved && (
+                <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2">
                   <a
                     href="/start-chapter"
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-[#34A853]"
@@ -104,10 +130,10 @@ const Navbar = () => {
               )}
             </div>
             <a
-              href="/updates"
+              href="/contact"
               className="text-lg font-medium text-gray-800 hover:text-[#34A853] transition duration-300"
             >
-              Updates
+              Contact
             </a>
           </div>
 
@@ -161,25 +187,50 @@ const Navbar = () => {
             >
               Home
             </a>
-            <a
-              href="/about"
-              className="block text-lg text-gray-800 hover:text-[#34A853] transition duration-300"
-            >
-              About
-            </a>
+            {/* About Us Dropdown */}
             <div>
               <button
-                onClick={() => setDropdownOpen(!dropdownOpen)}
+                onClick={() => setDropdownOpen({ ...dropdownOpen, about: !dropdownOpen.about })}
+                className="flex items-center w-full text-left text-lg text-gray-800 hover:text-[#34A853] transition duration-300"
+              >
+                About Us
+                <FaCaretDown
+                  className={`ml-2 transition-transform duration-300 ${
+                    dropdownOpen.about ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {dropdownOpen.about && (
+                <div className="ml-4 mt-2 space-y-2">
+                  <a
+                    href="/about"
+                    className="block text-lg text-gray-800 hover:text-[#34A853] transition duration-300"
+                  >
+                    Who We Are
+                  </a>
+                  <a
+                    href="/our-team"
+                    className="block text-lg text-gray-800 hover:text-[#34A853] transition duration-300"
+                  >
+                    Our Team
+                  </a>
+                </div>
+              )}
+            </div>
+            {/* Get Involved Dropdown */}
+            <div>
+              <button
+                onClick={() => setDropdownOpen({ ...dropdownOpen, involved: !dropdownOpen.involved })}
                 className="flex items-center w-full text-left text-lg text-gray-800 hover:text-[#34A853] transition duration-300"
               >
                 Get Involved
                 <FaCaretDown
                   className={`ml-2 transition-transform duration-300 ${
-                    dropdownOpen ? "rotate-180" : ""
+                    dropdownOpen.involved ? "rotate-180" : ""
                   }`}
                 />
               </button>
-              {dropdownOpen && (
+              {dropdownOpen.involved && (
                 <div className="ml-4 mt-2 space-y-2">
                   <a
                     href="/start-chapter"
@@ -197,10 +248,10 @@ const Navbar = () => {
               )}
             </div>
             <a
-              href="/updates"
+              href="/contact"
               className="block text-lg text-gray-800 hover:text-[#34A853] transition duration-300"
             >
-              Updates
+              Contact
             </a>
           </div>
         )}

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Section6: React.FC = () => {
   return (
@@ -41,20 +42,24 @@ const Section6: React.FC = () => {
 
         {/* Call-to-Action Buttons */}
         <div className="flex justify-center gap-6">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-6 py-3 border-2 border-white text-white font-semibold rounded-lg transition-all duration-300 hover:bg-white hover:text-[#34A853]"
-          >
-            Get Started
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-6 py-3 border-2 border-[#FBB040] bg-[#FBB040] text-white font-semibold rounded-lg transition-all duration-300 hover:bg-[#34A853] hover:text-white"
-          >
-            Learn More
-          </motion.button>
+          <Link href="/start-chapter">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-3 border-2 border-white text-white font-semibold rounded-lg transition-all duration-300 hover:bg-white hover:text-[#34A853]"
+            >
+              Get Started
+            </motion.button>
+          </Link>
+          <Link href="/about">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-3 border-2 border-[#FBB040] bg-[#FBB040] text-white font-semibold rounded-lg transition-all duration-300 hover:bg-[#34A853] hover:text-white"
+            >
+              Learn More
+            </motion.button>
+          </Link>
         </div>
       </div>
     </motion.section>

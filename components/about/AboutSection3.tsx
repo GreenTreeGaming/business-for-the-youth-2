@@ -39,48 +39,63 @@ const AboutSection3: React.FC = () => {
   ];
 
   return (
-    <section className="relative bg-[#F7F9FC] py-24">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
-        {/* Header */}
+    <section className="bg-[#F7F9FC] py-28">
+      {/* Decorative Header Section */}
+      <div className="bg-[#34A853] py-12 text-center">
         <motion.h2
-          className="text-5xl sm:text-6xl font-bold text-[#4A4A4A] mb-6"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          className="text-5xl sm:text-6xl font-bold text-white"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           Our Values
         </motion.h2>
+        <motion.div
+          className="w-24 h-1 bg-[#FBB040] mx-auto mt-4"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.6 }}
+        ></motion.div>
+      </div>
 
+      {/* Zigzag Divider */}
+      <div className="absolute top-0 w-full h-12 bg-[#F7F9FC] transform rotate-180 clip-path-mountain"></div>
+
+      {/* Content Section */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 mt-16">
         {/* Subtitle */}
         <motion.p
-          className="text-lg sm:text-xl text-[#4A4A4A] max-w-3xl mx-auto mb-12"
+          className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          At <span className="font-bold text-[#34A853]">Business For The Youth</span>, our values inspire everything we do. They guide us in empowering young leaders and building a brighter future.
+          At <span className="text-[#34A853] font-bold">Business For The Youth</span>, our values guide every step we take. Together, we build
+          impactful leaders who inspire positive change.
         </motion.p>
 
         {/* Values Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 mt-12">
           {values.map((value, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-lg shadow-lg p-8 hover:scale-105 transition-transform duration-300 text-center"
+              className="bg-gray-50 rounded-lg shadow-md p-8 hover:scale-105 transition-transform duration-300 relative flex flex-col items-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
             >
-              {/* Icon with Background */}
+              {/* Icon Section */}
               <div
-                className={`p-6 rounded-full mb-6 flex items-center justify-center shadow-md mx-auto ${value.bg}`}
+                className={`p-6 rounded-lg mb-6 flex items-center justify-center ${value.bg}`}
               >
                 {value.icon}
               </div>
 
-              {/* Content */}
-              <h3 className="text-xl font-bold text-[#4A4A4A] mb-4">{value.title}</h3>
-              <p className="text-[#4A4A4A]">{value.text}</p>
+              {/* Title and Text */}
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                {value.title}
+              </h3>
+              <p className="text-gray-600 text-center">{value.text}</p>
             </motion.div>
           ))}
         </div>
