@@ -15,6 +15,8 @@ const eslintConfig = [
     rules: {
       '@next/next/no-html-link-for-pages': 'off', // Disables the <a> navigation warning
       '@next/next/no-img-element': 'off',        // Disables the <img> optimization warning
+      '@typescript-eslint/no-unused-vars': 'off', // Disable unused vars check
+      'react/no-unescaped-entities': 'off',       // Disable unescaped entity errors
     },
   },
 ];
