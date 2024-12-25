@@ -4,38 +4,42 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Section3: React.FC = () => {
-  const [activeTab, setActiveTab] = useState("about");
+  // Define a union type for valid tab keys
+  type TabKey = "about" | "chapters" | "mission";
 
-  const tabs = {
+  // Explicitly type the tabs object
+  const tabs: Record<TabKey, { title: string; text: string; image: string }> = {
     about: {
       title: "About Us",
-      text: "Business for the Youth is a registered 501(c)(3) working towards engaging the youth in business practices through acts of service. BFTY believes that teaching and engaging the youth in business through service will not only prepare them for the real world but also make them leaders in their communities. Through our global events, fundraising, volunteerism, and chapters, BFTY advocates for youth business engagement through service.",
+      text: "Business for the Youth is a registered 501(c)(3) working towards engaging the youth in business practices through acts of service...",
       image: "/IMG_20241018_202735_975 - Alexa Mikealson.jpg",
     },
     chapters: {
       title: "Our Chapters",
-      text: "We have active chapters in cities worldwide, each focusing on local needs while maintaining a global perspective. Our chapters provide mentorship, networking opportunities, and resources for young entrepreneurs.",
+      text: "We have active chapters in cities worldwide, each focusing on local needs while maintaining a global perspective...",
       image: "/FOR THE.jpg",
     },
     mission: {
       title: "Our Mission",
-      text: "Our mission is to provide a platform for youth to develop entrepreneurial skills, collaborate on impactful projects, and build sustainable businesses that address critical challenges.",
+      text: "Our mission is to provide a platform for youth to develop entrepreneurial skills...",
       image: "/1.png",
     },
   };
 
+  // Use the defined TabKey type for state
+  const [activeTab, setActiveTab] = useState<TabKey>("about");
+
   return (
     <motion.section
-      className="relative bg-[#F7F9FC] py-24"
+      className="relative bg-gray-50 py-24"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-12 lg:px-16 relative z-10">
-        {/* Header */}
         <motion.h2
-          className="text-5xl sm:text-6xl font-bold text-center text-[#34A853] mb-12"
+          className="text-5xl sm:text-6xl font-bold text-center text-gray-800 mb-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
@@ -43,7 +47,6 @@ const Section3: React.FC = () => {
           Discover More About Us
         </motion.h2>
 
-        {/* Tab Buttons */}
         <div className="flex justify-center gap-6 mb-16">
           {Object.keys(tabs).map((tab) => (
             <motion.button
@@ -52,17 +55,16 @@ const Section3: React.FC = () => {
               whileTap={{ scale: 0.95 }}
               className={`px-6 py-3 text-lg font-semibold rounded-lg border-2 transition-all duration-300 ${
                 activeTab === tab
-                  ? "bg-[#34A853] text-white border-[#34A853]"
-                  : "bg-white text-[#34A853] border-[#34A853] hover:bg-[#34A853] hover:text-white"
+                  ? "bg-customGreen text-white border-customGreen"
+                  : "bg-white text-customGreen border-customGreen hover:bg-customGreen hover:text-white"
               }`}
-              onClick={() => setActiveTab(tab)}
+              onClick={() => setActiveTab(tab as TabKey)} // Cast tab as TabKey
             >
-              {tabs[tab].title}
+              {tabs[tab as TabKey].title} {/* Cast tab as TabKey */}
             </motion.button>
           ))}
         </div>
 
-        {/* Content Area */}
         <div className="relative">
           <AnimatePresence mode="wait">
             {Object.keys(tabs).map(
@@ -76,22 +78,20 @@ const Section3: React.FC = () => {
                     exit={{ opacity: 0, y: -30 }}
                     transition={{ duration: 0.5 }}
                   >
-                    {/* Text Content */}
                     <motion.div
                       className="md:w-1/2 text-center md:text-left px-6 sm:px-8"
                       initial={{ opacity: 0, x: -50 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5 }}
                     >
-                      <h3 className="text-3xl sm:text-4xl font-bold text-[#34A853] mb-6">
-                        {tabs[tab].title}
+                      <h3 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">
+                        {tabs[tab as TabKey].title}
                       </h3>
-                      <p className="text-lg sm:text-xl text-[#4A4A4A]">
-                        {tabs[tab].text}
+                      <p className="text-lg sm:text-xl text-gray-600">
+                        {tabs[tab as TabKey].text}
                       </p>
                     </motion.div>
 
-                    {/* Image Content */}
                     <motion.div
                       className="relative md:w-1/2"
                       initial={{ opacity: 0, x: 50 }}
@@ -99,8 +99,8 @@ const Section3: React.FC = () => {
                       transition={{ duration: 0.5 }}
                     >
                       <img
-                        src={tabs[tab].image}
-                        alt={tabs[tab].title}
+                        src={tabs[tab as TabKey].image}
+                        alt={tabs[tab as TabKey].title}
                         className="rounded-xl w-full"
                       />
                     </motion.div>
