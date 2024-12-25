@@ -1,11 +1,16 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { FaCaretDown } from "react-icons/fa";
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(
+    null
+  );
 
   const toggleMobileNavbar = () => {
     setClick(!click);
@@ -24,6 +29,16 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+
+  const handleMouseEnter = () => {
+    if (dropdownTimeout) clearTimeout(dropdownTimeout);
+    setDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    const timeout = setTimeout(() => setDropdownOpen(false), 200); // Delay of 200ms
+    setDropdownTimeout(timeout);
+  };
 
   return (
     <nav
@@ -45,28 +60,52 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex space-x-6">
+          <div className="hidden md:flex space-x-6 items-center">
             <a
               href="/"
-              className="text-lg font-medium text-gray-800 hover:text-customGreen transition duration-300"
+              className="text-lg font-medium text-gray-800 hover:text-[#34A853] transition duration-300"
             >
               Home
             </a>
             <a
               href="/about"
-              className="text-lg font-medium text-gray-800 hover:text-customGreen transition duration-300"
+              className="text-lg font-medium text-gray-800 hover:text-[#34A853] transition duration-300"
             >
               About
             </a>
-            <a
-              href="/getinvolved"
-              className="text-lg font-medium text-gray-800 hover:text-customGreen transition duration-300"
+            <div
+              className="relative group"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
-              Get Involved
-            </a>
+              <button className="flex items-center text-lg font-medium text-gray-800 hover:text-[#34A853] transition duration-300">
+                Get Involved
+                <FaCaretDown
+                  className={`ml-2 transition-transform duration-300 ${
+                    dropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {dropdownOpen && (
+                <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2 z-50">
+                  <a
+                    href="/start-chapter"
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-[#34A853]"
+                  >
+                    Start a Chapter
+                  </a>
+                  <a
+                    href="/volunteering"
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-[#34A853]"
+                  >
+                    Volunteering
+                  </a>
+                </div>
+              )}
+            </div>
             <a
               href="/updates"
-              className="text-lg font-medium text-gray-800 hover:text-customGreen transition duration-300"
+              className="text-lg font-medium text-gray-800 hover:text-[#34A853] transition duration-300"
             >
               Updates
             </a>
@@ -76,7 +115,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMobileNavbar}
-              className="text-gray-800 hover:text-customGreen focus:outline-none"
+              className="text-gray-800 hover:text-[#34A853] focus:outline-none"
             >
               {click ? (
                 <svg
@@ -118,25 +157,48 @@ const Navbar = () => {
           <div className="md:hidden bg-white py-4 px-2 space-y-4 shadow-xl rounded-lg">
             <a
               href="/"
-              className="block text-lg text-gray-800 hover:text-customGreen transition duration-300"
+              className="block text-lg text-gray-800 hover:text-[#34A853] transition duration-300"
             >
               Home
             </a>
             <a
               href="/about"
-              className="block text-lg text-gray-800 hover:text-customGreen transition duration-300"
+              className="block text-lg text-gray-800 hover:text-[#34A853] transition duration-300"
             >
               About
             </a>
-            <a
-              href="/getinvolved"
-              className="block text-lg text-gray-800 hover:text-customGreen transition duration-300"
-            >
-              Get Involved
-            </a>
+            <div>
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="flex items-center w-full text-left text-lg text-gray-800 hover:text-[#34A853] transition duration-300"
+              >
+                Get Involved
+                <FaCaretDown
+                  className={`ml-2 transition-transform duration-300 ${
+                    dropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {dropdownOpen && (
+                <div className="ml-4 mt-2 space-y-2">
+                  <a
+                    href="/start-chapter"
+                    className="block text-lg text-gray-800 hover:text-[#34A853] transition duration-300"
+                  >
+                    Start a Chapter
+                  </a>
+                  <a
+                    href="/volunteering"
+                    className="block text-lg text-gray-800 hover:text-[#34A853] transition duration-300"
+                  >
+                    Volunteering
+                  </a>
+                </div>
+              )}
+            </div>
             <a
               href="/updates"
-              className="block text-lg text-gray-800 hover:text-customGreen transition duration-300"
+              className="block text-lg text-gray-800 hover:text-[#34A853] transition duration-300"
             >
               Updates
             </a>

@@ -57,7 +57,7 @@ const Section1: React.FC = () => {
           transition={{ duration: 1 }}
         >
           <img
-            src="/kids1.jpg"
+            src="kids1.jpg"
             alt="Group of kids working together"
             className="rounded-lg shadow-2xl w-full max-w-[400px] md:max-w-full h-auto"
           />
