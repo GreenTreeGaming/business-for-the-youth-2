@@ -38,16 +38,16 @@ const Footer: React.FC = () => {
               About Us
             </a>
             <a
-              href="/getinvolved"
+              href="/start-chapter"
               className="hover:text-gray-800 transition-colors duration-300"
             >
               Get Involved
             </a>
             <a
-              href="/updates"
+              href="/about"
               className="hover:text-gray-800 transition-colors duration-300"
             >
-              Updates
+              About
             </a>
           </div>
 
