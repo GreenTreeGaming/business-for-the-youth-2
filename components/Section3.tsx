@@ -144,7 +144,7 @@ const Section3: React.FC = () => {
                                   ["youth", "opportunities", "communities"].includes(
                                     word.toLowerCase()
                                   )
-                                    ? "relative font-bold text-[#FBB040] underline"
+                                    ? "relative font-bold text-[#FBB040]"
                                     : ""
                                 }`}
                                 initial={{ x: -10, opacity: 0 }}

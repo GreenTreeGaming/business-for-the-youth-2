@@ -32,8 +32,8 @@ const Section2: React.FC = () => {
           Featured On
         </motion.h3>
 
-        {/* Logos */}
-        <div className="flex justify-center items-center gap-12 lg:gap-16 mt-8 overflow-x-auto">
+        {/* Logos Grid */}
+        <div className="grid grid-cols-3 sm:grid-cols-5 gap-8 justify-center items-center">
           {logos.map((logo, index) => (
             <motion.div
               key={index}
