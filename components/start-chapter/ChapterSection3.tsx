@@ -48,7 +48,7 @@ const ChapterSection3: React.FC = () => {
   ];
 
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white pt-20">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <motion.h2

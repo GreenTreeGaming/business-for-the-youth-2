@@ -5,7 +5,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <main>
+    <main className="bg-[#f8f4ec]">
       <div>
         <ChapterSection1 />
         <ChapterSection2 />

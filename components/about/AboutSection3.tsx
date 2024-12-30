@@ -27,7 +27,7 @@ const AboutSection3: React.FC = () => {
   ];
 
   return (
-    <section className="bg-[#F7F9FC] py-28 text-center">
+    <section className="bg-[#F7F9FC] py-28 px-4 sm:px-6 lg:px-12 text-center">
       {/* Header */}
       <motion.h2
         className="text-5xl sm:text-6xl font-bold text-[#6cb251] mb-8"
