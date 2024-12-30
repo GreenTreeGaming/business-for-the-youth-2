@@ -42,23 +42,31 @@ const Section6: React.FC = () => {
 
         {/* Call-to-Action Buttons */}
         <div className="flex justify-center gap-6">
-          <Link href="/start-chapter">
-            <motion.button
-              whileHover={{
-                backgroundPosition: "200% center",
-                transition: "background-position 0.5s",
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 bg-gradient-to-r from-[#64a837] to-[#7bc972] text-white font-semibold rounded-lg transition-all duration-300 shadow-lg bg-[length:200%_auto]"
-              style={{
-                backgroundImage:
-                  "linear-gradient(45deg, #64a837, #7bc972, #64a837)",
-                backgroundPosition: "0% center",
-              }}
-            >
-              Get Started
-            </motion.button>
-          </Link>
+        <Link href="/start-chapter">
+          <motion.button
+            whileHover={{
+              scale: 1.05, // Use Framer Motion to scale
+            }}
+            whileTap={{
+              scale: 0.95,
+            }}
+            className="px-6 py-3 font-semibold rounded-lg shadow-lg text-lg transition-all duration-300 text-white"
+            style={{
+              background: "linear-gradient(45deg, #64a837, #7bc972, #64a837)",
+              backgroundSize: "200%",
+              backgroundPosition: "0%",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundPosition = "100%";
+              e.currentTarget.style.transition = "background-position 0.5s ease";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundPosition = "0%";
+            }}
+          >
+            Get Involved
+          </motion.button>
+        </Link>
           <Link href="/about">
             <motion.button
               whileHover={{ scale: 1.05 }}
