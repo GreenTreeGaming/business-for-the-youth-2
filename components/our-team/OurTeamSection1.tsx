@@ -17,9 +17,11 @@ const OurTeamSection1: React.FC = () => {
   return (
     <section className="bg-[#F7F9FC] pb-20">
       {/* Decorative Header Section */}
-      <div className="bg-[#34A853] pt-32 pb-16 text-center w-full">
+      <div
+        className="bg-gradient-to-r from-[#faf0f6] via-[#bfedff] to-[#d9eabd] pt-32 pb-16 text-center w-full relative"
+      >
         <motion.h2
-          className="text-5xl sm:text-6xl font-bold text-white"
+          className="text-5xl sm:text-6xl font-bold text-[#4A4A4A]"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -27,11 +29,14 @@ const OurTeamSection1: React.FC = () => {
           Meet Our Team
         </motion.h2>
         <motion.div
-          className="w-24 h-1 bg-[#FBB040] mx-auto mt-4"
+          className="w-24 h-1 bg-[#6cb251] mx-auto mt-4"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.6 }}
         ></motion.div>
+        {/* Background Decorative Accents */}
+        <div className="absolute top-10 left-5 w-32 h-32 bg-[#bfedff] opacity-40 rounded-full blur-xl"></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-[#d9eabd] opacity-40 rounded-full blur-2xl"></div>
       </div>
 
       {/* Team Section */}
@@ -58,7 +63,7 @@ const OurTeamSection1: React.FC = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#34A853]">{member.name}</h3>
+                <h3 className="text-2xl font-bold text-[#6cb251]">{member.name}</h3>
                 <p className="text-gray-600">{member.role}</p>
               </div>
             </motion.div>

@@ -26,14 +26,14 @@ const AboutSection4: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Descriptive Section */}
           <motion.div
-            className="flex flex-col justify-center items-center bg-[#34A853] text-white rounded-lg p-8 transition-transform duration-300"
+            className="flex flex-col justify-center items-center bg-[#6cb251] text-white rounded-lg p-8 transition-transform duration-300"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
             <h3 className="text-3xl font-bold mb-4 flex items-center gap-3">
               Our Global Presence
-              <FaMapMarkerAlt className="text-[#FBB040] text-4xl" />
+              <FaMapMarkerAlt className="text-white text-4xl" />
             </h3>
             <p className="text-lg text-center mb-6">
               With chapters spanning schools and regions worldwide, we empower youth to lead
@@ -59,8 +59,8 @@ const AboutSection4: React.FC = () => {
                 onClick={() => setActiveTab("schoolChapters")}
                 className={`px-6 py-3 font-semibold rounded-lg border-2 transition-all duration-300 ${
                   activeTab === "schoolChapters"
-                    ? "bg-[#34A853] text-white border-[#34A853]"
-                    : "bg-white text-[#34A853] border-[#34A853] hover:bg-[#34A853] hover:text-white"
+                    ? "bg-[#6cb251] text-white border-[#6cb251]"
+                    : "bg-white text-[#6cb251] border-[#6cb251] hover:bg-[#6cb251] hover:text-white"
                 }`}
               >
                 School Chapters
@@ -69,8 +69,8 @@ const AboutSection4: React.FC = () => {
                 onClick={() => setActiveTab("regionalChapters")}
                 className={`px-6 py-3 font-semibold rounded-lg border-2 transition-all duration-300 ${
                   activeTab === "regionalChapters"
-                    ? "bg-[#34A853] text-white border-[#34A853]"
-                    : "bg-white text-[#34A853] border-[#34A853] hover:bg-[#34A853] hover:text-white"
+                    ? "bg-[#6cb251] text-white border-[#6cb251]"
+                    : "bg-white text-[#6cb251] border-[#6cb251] hover:bg-[#6cb251] hover:text-white"
                 }`}
               >
                 Regional Chapters
@@ -78,9 +78,9 @@ const AboutSection4: React.FC = () => {
             </div>
 
             {/* Dynamic List of Locations */}
-            <div className="overflow-y-auto h-96 bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-lg">
+            <div className="overflow-y-auto h-96 bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-lg mb-8">
               <h3 className="text-2xl font-bold text-[#4A4A4A] mb-4 flex items-center gap-3">
-                <FaMapMarkerAlt className="text-[#34A853]" />
+                <FaMapMarkerAlt className="text-[#6cb251]" />
                 {activeTab === "schoolChapters" ? "School Chapters" : "Regional Chapters"}
               </h3>
               <ul className="space-y-4">
@@ -89,9 +89,9 @@ const AboutSection4: React.FC = () => {
                     key={index}
                     className="flex items-center gap-4 text-lg text-[#4A4A4A]"
                   >
-                    <FaMapMarkerAlt className="text-[#34A853]" />
+                    <FaMapMarkerAlt className="text-[#6cb251]" />
                     <div>
-                      <span className="font-semibold text-[#34A853]">
+                      <span className="font-semibold text-[#6cb251]">
                         {location.name}
                       </span>{" "}
                       - {location.location}
@@ -99,6 +99,18 @@ const AboutSection4: React.FC = () => {
                   </li>
                 ))}
               </ul>
+            </div>
+
+            {/* Embedded Google Map */}
+            <div className="mt-8">
+              <iframe
+                title="Google Map"
+                src="https://www.google.com/maps/d/u/0/embed?mid=1hQUDVdhFy0Hz9DI1qtZ5k2jaVh6ZprI&ehbc=2E312F&noprof=1"
+                width="100%"
+                height="400px"
+                className="rounded-lg border-2 border-gray-300 shadow-lg"
+                allowFullScreen
+              ></iframe>
             </div>
           </motion.div>
         </div>

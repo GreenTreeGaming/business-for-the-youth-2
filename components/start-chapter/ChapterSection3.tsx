@@ -7,22 +7,22 @@ import { FaBusinessTime, FaUsers, FaHandsHelping, FaClock } from "react-icons/fa
 const ChapterSection3: React.FC = () => {
   const benefits = [
     {
-      icon: <FaBusinessTime className="text-5xl text-[#34A853]" />,
+      icon: <FaBusinessTime className="text-5xl text-[#6cb251]" />,
       title: "Teach Business Skills",
       text: "Empower youth to learn the practicalities of running a business, preparing them for the real world.",
     },
     {
-      icon: <FaUsers className="text-5xl text-[#34A853]" />,
+      icon: <FaUsers className="text-5xl text-[#6cb251]" />,
       title: "Develop Leadership",
       text: "Enhance leadership skills and provide opportunities to lead impactful initiatives.",
     },
     {
-      icon: <FaHandsHelping className="text-5xl text-[#34A853]" />,
+      icon: <FaHandsHelping className="text-5xl text-[#6cb251]" />,
       title: "Support Communities",
       text: "Assist underrepresented groups through business practices and meaningful service.",
     },
     {
-      icon: <FaClock className="text-5xl text-[#34A853]" />,
+      icon: <FaClock className="text-5xl text-[#6cb251]" />,
       title: "Earn Volunteer Hours",
       text: "Gain numerous volunteer hours while making a tangible impact in your community.",
     },
@@ -52,7 +52,7 @@ const ChapterSection3: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <motion.h2
-          className="text-5xl sm:text-6xl font-bold text-[#34A853] text-center mb-8"
+          className="text-5xl sm:text-6xl font-bold text-[#6cb251] text-center mb-8"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -60,7 +60,7 @@ const ChapterSection3: React.FC = () => {
           Why Start a Chapter?
         </motion.h2>
         <motion.div
-          className="w-24 h-1 bg-[#FBB040] mx-auto mb-12"
+          className="w-24 h-1 bg-gray-400 mx-auto mb-12"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.6 }}
@@ -79,7 +79,9 @@ const ChapterSection3: React.FC = () => {
               <div className="flex justify-center items-center mb-4">
                 {benefit.icon}
               </div>
-              <h3 className="text-xl font-bold text-[#34A853] mb-2">{benefit.title}</h3>
+              <h3 className="text-xl font-bold text-[#6cb251] mb-2">
+                {benefit.title}
+              </h3>
               <p className="text-gray-700">{benefit.text}</p>
             </motion.div>
           ))}
@@ -87,10 +89,10 @@ const ChapterSection3: React.FC = () => {
       </div>
 
       {/* Leadership Roles Section */}
-      <div className="bg-gray-50 py-16">
+      <div className="bg-[#f8f4ec] py-16">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <motion.h3
-            className="text-4xl sm:text-5xl font-bold text-[#34A853] text-center mb-8"
+            className="text-4xl sm:text-5xl font-bold text-[#6cb251] text-center mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -98,7 +100,7 @@ const ChapterSection3: React.FC = () => {
             Leadership Roles
           </motion.h3>
           <motion.div
-            className="w-24 h-1 bg-[#FBB040] mx-auto mb-12"
+            className="w-24 h-1 bg-gray-400 mx-auto mb-12"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.6 }}
@@ -113,7 +115,9 @@ const ChapterSection3: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
               >
-                <h4 className="text-2xl font-bold text-[#34A853] mb-4">{role.title}</h4>
+                <h4 className="text-2xl font-bold text-[#6cb251] mb-4">
+                  {role.title}
+                </h4>
                 <p className="text-gray-700">{role.text}</p>
               </motion.div>
             ))}

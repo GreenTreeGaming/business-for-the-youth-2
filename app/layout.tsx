@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Work_Sans } from "next/font/google";
+import { Inter } from "next/font/google"; // Importing the new font
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const work_sans = Work_Sans({ subsets: ["latin"] });
+// Load the Inter font
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Business For The Youth",
@@ -18,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={work_sans.className}>
+      <body className={inter.className}> {/* Applying the Inter font */}
         <Navbar />
         {children}
         <Footer />

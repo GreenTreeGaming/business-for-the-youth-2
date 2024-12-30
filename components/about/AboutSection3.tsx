@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { FaHandsHelping, FaUsers, FaLightbulb, FaChartLine, FaHeart } from "react-icons/fa";
+import { FaHandsHelping, FaUsers, FaLightbulb } from "react-icons/fa";
 
 const AboutSection3: React.FC = () => {
   const values = [
@@ -10,7 +10,7 @@ const AboutSection3: React.FC = () => {
       title: "Empowerment",
       text: "We believe in empowering youth to lead, innovate, and make a meaningful impact in their communities.",
       icon: <FaHandsHelping className="text-white text-4xl" />,
-      bg: "bg-[#34A853]", // Custom Green
+      bg: "bg-[#6cb251]", // Custom Green
     },
     {
       title: "Collaboration",
@@ -22,7 +22,7 @@ const AboutSection3: React.FC = () => {
       title: "Innovation",
       text: "We strive to encourage creativity and forward-thinking ideas that drive impactful change.",
       icon: <FaLightbulb className="text-white text-4xl" />,
-      bg: "bg-[#FBB040]", // Golden Yellow
+      bg: "bg-[#6cb251]", // Custom Green
     },
   ];
 
@@ -30,7 +30,7 @@ const AboutSection3: React.FC = () => {
     <section className="bg-[#F7F9FC] py-28 text-center">
       {/* Header */}
       <motion.h2
-        className="text-5xl sm:text-6xl font-bold text-[#34A853] mb-8"
+        className="text-5xl sm:text-6xl font-bold text-[#6cb251] mb-8"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -38,7 +38,7 @@ const AboutSection3: React.FC = () => {
         Our Values
       </motion.h2>
       <motion.div
-        className="w-24 h-1 bg-[#FBB040] mx-auto mb-12"
+        className="w-24 h-1 bg-[#6cb251] mx-auto mb-12"
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
         transition={{ duration: 0.6 }}
@@ -51,7 +51,7 @@ const AboutSection3: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        At <span className="text-[#34A853] font-bold">Business For The Youth</span>, our values guide every step we take. Together, we build
+        At <span className="text-[#6cb251] font-bold">Business For The Youth</span>, our values guide every step we take. Together, we build
         impactful leaders who inspire positive change.
       </motion.p>
 

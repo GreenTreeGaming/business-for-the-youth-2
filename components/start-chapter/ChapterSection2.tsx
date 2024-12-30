@@ -2,15 +2,15 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { FaBookOpen, FaUsers } from "react-icons/fa";
+import { FaUsers, FaBookOpen } from "react-icons/fa";
 
 const ChapterSection2: React.FC = () => {
   return (
-    <section className="bg-gray-50 py-20">
+    <section className="bg-[#f8f4ec] py-20">
       {/* Header Section */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
         <motion.h2
-          className="text-5xl sm:text-6xl font-bold text-[#34A853] mb-8"
+          className="text-5xl sm:text-6xl font-bold text-[#6cb251] mb-8"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -18,7 +18,7 @@ const ChapterSection2: React.FC = () => {
           What is a Chapter?
         </motion.h2>
         <motion.div
-          className="w-24 h-1 bg-[#FBB040] mx-auto mb-12"
+          className="w-24 h-1 bg-gray-400 mx-auto mb-12"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.6 }}
@@ -26,7 +26,7 @@ const ChapterSection2: React.FC = () => {
 
         {/* Description */}
         <motion.p
-          className="text-lg sm:text-xl text-gray-700 max-w-4xl mx-auto mb-16"
+          className="text-lg sm:text-xl text-gray-800 max-w-4xl mx-auto mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -42,17 +42,17 @@ const ChapterSection2: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
           {[
             {
-              icon: <FaUsers className="text-5xl text-[#34A853]" />,
+              icon: <FaUsers className="text-5xl text-[#6cb251]" />,
               title: "Build a Community",
               text: "Create a network of youth who are eager to collaborate and innovate.",
             },
             {
-              icon: <FaBookOpen className="text-5xl text-[#34A853]" />,
+              icon: <FaBookOpen className="text-5xl text-[#6cb251]" />,
               title: "Access Resources",
               text: "Gain exclusive tools, guides, and mentorship to lead your chapter effectively.",
             },
             {
-              icon: <FaUsers className="text-5xl text-[#34A853]" />,
+              icon: <FaUsers className="text-5xl text-[#6cb251]" />,
               title: "Make an Impact",
               text: "Drive meaningful change and contribute to underrepresented communities.",
             },
@@ -67,10 +67,10 @@ const ChapterSection2: React.FC = () => {
               <div className="flex justify-center items-center mb-6">
                 {item.icon}
               </div>
-              <h3 className="text-2xl font-bold text-[#34A853] mb-4">
+              <h3 className="text-2xl font-bold text-[#6cb251] mb-4">
                 {item.title}
               </h3>
-              <p className="text-gray-600">{item.text}</p>
+              <p className="text-gray-700">{item.text}</p>
             </motion.div>
           ))}
         </div>
@@ -86,7 +86,7 @@ const ChapterSection2: React.FC = () => {
             href="https://docs.google.com/document/d/16mk8neqcwXRReGUw5tT3N6TQbWcCiAdyr7VRXAbmhYI/edit?tab=t.0#heading=h.cexdtw7o269v"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-4 bg-[#FBB040] text-black font-semibold rounded-lg transition-all duration-300 hover:bg-[#FFC857] shadow-lg text-lg inline-flex items-center"
+            className="px-8 py-4 bg-gradient-to-r from-[#6cb251] to-[#34A853] text-white font-semibold rounded-lg transition-all duration-300 hover:from-[#34A853] hover:to-[#6cb251] shadow-lg text-lg inline-flex items-center"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

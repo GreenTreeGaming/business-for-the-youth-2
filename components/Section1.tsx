@@ -3,16 +3,18 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { FaCheckCircle } from "react-icons/fa";
 
 const Section1: React.FC = () => {
   return (
-    <section className="pt-20 md:pt-16 bg-[#34A853] min-h-screen flex items-center relative">
-      {/* Background Accents */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-48 h-48 bg-[#FBB040] rounded-full opacity-40 blur-2xl"></div>
-        <div className="absolute bottom-10 right-10 w-64 h-64 bg-white opacity-20 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-[#4A4A4A] opacity-10 rounded-full blur-[100px]"></div>
-      </div>
+    <section
+      className="pt-20 md:pt-16 min-h-screen flex items-center relative bg-cover bg-center"
+      style={{
+        backgroundImage: `url('/IMG_20241015_214040_803 - Bemnet Fiker (1).jpg')`, // Replace with your image path
+      }}
+    >
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/70"></div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col md:flex-row items-center gap-12 relative z-10">
         {/* Text Section */}
@@ -23,7 +25,7 @@ const Section1: React.FC = () => {
           transition={{ duration: 1 }}
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight">
-            Join Us in <span className="text-[#FBB040]">Making Change</span>{" "}
+            Join Us in <span className="text-[#6cb251]">Making Change</span>{" "}
             Through Business
           </h1>
           <p className="text-lg sm:text-xl text-white opacity-90">
@@ -31,13 +33,39 @@ const Section1: React.FC = () => {
             and sustainable business solutions. Be a part of something bigger
             and make an impact today!
           </p>
+
+          {/* Key Highlights */}
+          <div className="mt-4 space-y-3">
+            {[
+              "Empower youth to become leaders.",
+              "Provide impactful business solutions.",
+              "Create opportunities for sustainable growth.",
+            ].map((highlight, index) => (
+              <motion.div
+                key={index}
+                className="flex items-center gap-3 text-white text-lg"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 + index * 0.2 }}
+              >
+                <FaCheckCircle className="text-[#6cb251] text-xl" />
+                {highlight}
+              </motion.div>
+            ))}
+          </div>
+
           {/* Buttons */}
-          <div className="flex justify-center md:justify-start gap-6">
+          <div className="flex justify-center md:justify-start gap-6 mt-6">
             <Link href="/start-chapter">
               <motion.button
-                whileHover={{ scale: 1.1 }}
+                whileHover={{
+                  backgroundImage:
+                    "linear-gradient(45deg, #64a837, #7bc972, #64a837)",
+                  backgroundPosition: "200% center",
+                  transition: "background-position 0.5s",
+                }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 mt-4 bg-[#FBB040] text-black font-semibold rounded-lg transition-all duration-300 hover:bg-[#FFC857] shadow-lg"
+                className="px-6 py-3 bg-gradient-to-r from-[#64a837] to-[#7bc972] text-white font-semibold rounded-lg transition-all duration-300 shadow-lg"
               >
                 Get Involved
               </motion.button>
@@ -46,29 +74,24 @@ const Section1: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 mt-4 bg-white text-[#34A853] font-semibold rounded-lg transition-all duration-300 hover:bg-[#E6F8E6] shadow-lg"
+                className="px-6 py-3 border-2 border-white text-white font-semibold rounded-lg transition-all duration-300 hover:bg-white hover:text-[#6cb251] shadow-lg"
               >
                 Contact Us
               </motion.button>
             </Link>
           </div>
         </motion.div>
+      </div>
 
-        {/* Image Section */}
+      {/* Scroll Down Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
         <motion.div
-          className="relative flex justify-center md:w-1/2 pb-8 sm:pb-0"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
+          className="w-8 h-8 border-2 border-white rounded-full flex items-center justify-center animate-bounce"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
         >
-          <img
-            src="/IMG_20241015_214040_803 - Bemnet Fiker (1).jpg"
-            alt="Group of kids working together"
-            className="rounded-lg shadow-2xl w-full max-w-[400px] md:max-w-full h-auto"
-          />
-          {/* Decorative Accents */}
-          <div className="absolute top-5 right-5 w-16 h-16 bg-[#FBB040] rounded-full opacity-80 blur-xl"></div>
-          <div className="absolute bottom-0 left-5 w-24 h-24 bg-white rounded-full opacity-20 blur-2xl"></div>
+          <span className="text-white text-2xl">↓</span>
         </motion.div>
       </div>
     </section>

@@ -58,9 +58,9 @@ const Navbar = () => {
         <div className="flex items-center">
           <a href="/" className="flex-shrink-0">
             <img
-              src="/phonto 34.jpg"
+              src="/EdititedLogo.png"
               alt="Business For The Youth Logo"
-              className="h-10 w-auto"
+              className="h-20 w-auto"
             />
           </a>
         </div>
@@ -141,7 +141,7 @@ const Navbar = () => {
         <div className="hidden md:block">
           <a
             href="/contact"
-            className="px-6 py-2 bg-[#34A853] text-white font-medium text-lg rounded-lg shadow-md hover:bg-[#2e8b3d] transition duration-300"
+            className="px-6 py-2 bg-[#6cb251] text-white font-medium text-lg rounded-lg shadow-md hover:bg-[#2e8b3d] transition duration-300"
           >
             Contact
           </a>
