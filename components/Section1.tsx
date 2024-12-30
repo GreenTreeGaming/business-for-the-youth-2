@@ -56,20 +56,31 @@ const Section1: React.FC = () => {
 
           {/* Buttons */}
           <div className="flex justify-center md:justify-start gap-6 mt-6">
-            <Link href="/start-chapter">
-              <motion.button
-                whileHover={{
-                  backgroundImage:
-                    "linear-gradient(45deg, #64a837, #7bc972, #64a837)",
-                  backgroundPosition: "200% center",
-                  transition: "background-position 0.5s",
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-gradient-to-r from-[#64a837] to-[#7bc972] text-white font-semibold rounded-lg transition-all duration-300 shadow-lg"
-              >
-                Get Involved
-              </motion.button>
-            </Link>
+          <Link href="/start-chapter">
+            <motion.button
+              whileHover={{
+                scale: 1.05,
+              }}
+              whileTap={{
+                scale: 0.95,
+              }}
+              className="px-6 py-3 text-white font-semibold rounded-lg shadow-lg text-lg transition-all duration-300"
+              style={{
+                background: "linear-gradient(45deg, #64a837, #7bc972, #64a837)",
+                backgroundSize: "200%",
+                backgroundPosition: "0%",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundPosition = "100%";
+                e.currentTarget.style.transition = "background-position 0.5s ease";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundPosition = "0%";
+              }}
+            >
+              Get Involved
+            </motion.button>
+          </Link>
             <Link href="/contact">
               <motion.button
                 whileHover={{ scale: 1.1 }}
