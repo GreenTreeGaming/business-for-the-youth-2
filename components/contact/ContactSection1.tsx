@@ -39,11 +39,9 @@ const ContactSection1: React.FC = () => {
   return (
     <section className="bg-[#F7F9FC]">
       {/* Decorative Header Section */}
-      <div
-        className="bg-gradient-to-r from-[#faf0f6] via-[#bfedff] to-[#d9eabd] pt-16 sm:pt-32 pb-16 text-center w-full relative"
-      >
+      <div className="bg-gradient-to-r from-[#faf0f6] via-[#bfedff] to-[#d9eabd] pt-32 pb-16 text-center w-full relative">
         <motion.h2
-          className="text-4xl sm:text-6xl font-bold text-[#4A4A4A]"
+          className="text-5xl sm:text-6xl font-bold text-[#4A4A4A]"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -51,14 +49,14 @@ const ContactSection1: React.FC = () => {
           Contact Us
         </motion.h2>
         <motion.div
-          className="w-16 sm:w-24 h-1 bg-[#6cb251] mx-auto mt-4"
+          className="w-24 h-1 bg-[#6cb251] mx-auto mt-4"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.6 }}
         ></motion.div>
         {/* Background Decorative Accents */}
-        <div className="absolute top-10 left-5 w-20 sm:w-32 h-20 sm:h-32 bg-[#bfedff] opacity-40 rounded-full blur-xl"></div>
-        <div className="absolute bottom-10 right-10 w-28 sm:w-40 h-28 sm:h-40 bg-[#d9eabd] opacity-40 rounded-full blur-2xl"></div>
+        <div className="absolute top-10 left-5 w-32 h-32 bg-[#bfedff] opacity-40 rounded-full blur-xl"></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-[#d9eabd] opacity-40 rounded-full blur-2xl"></div>
       </div>
 
       {/* Main Contact Section */}
