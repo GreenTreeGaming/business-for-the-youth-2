@@ -20,7 +20,7 @@ const Section5: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <motion.h2
-          className="text-5xl sm:text-6xl font-bold text-[#6cb251] mb-12 text-center"
+          className="text-5xl sm:text-6xl font-bold text-[#4A4A4A] mb-12 text-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}

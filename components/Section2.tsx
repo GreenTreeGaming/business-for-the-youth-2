@@ -20,7 +20,7 @@ const Section2: React.FC = () => {
   };
 
   return (
-    <section className="bg-gray-50 py-16 border-b border-gray-200">
+    <section className="bg-gradient-to-r from-[#faf0f6] via-[#bfedff] to-[#d9eabd] py-16 border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Featured On Header */}
         <motion.h3
